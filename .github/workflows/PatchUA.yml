@@ -1,0 +1,22 @@
+name: "Patch UA"
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - v4_5_x
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Patch files
+      uses: onlyutkarsh/patch-files-action@v1.0.1
+      with:
+        files: |
+          src/base/bittorrent/sessionimpl.cpp
+        patch-syntax: |
+          = /version => "1.0.1"
+          = /qBittorrent Enhanced => qBittorrent
