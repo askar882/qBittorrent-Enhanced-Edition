@@ -18,5 +18,4 @@ jobs:
         files: |
           src/base/bittorrent/sessionimpl.cpp
         patch-syntax: |
-          = /version => "1.0.1"
           = /qBittorrent Enhanced => qBittorrent
